@@ -137,7 +137,14 @@ class PactMapReproTest {
                                 entry("pact:record-name", "ExampleEvent"),
                                 entry("pact:content-type", "avro/binary"),
                                 entry("id", "notEmpty('12345')"),
-                                entry("hashes", "atMost(2)")
+                                entry("hashes", ofEntries(
+                                        //Neither of these works, either with or without additional example entries: (null value for (non-nullable) string at ExampleEvent.hashes["pact:match"])
+                                        entry("pact:match", "eachKey(matching(regex, '^(sha-256|coins)$', 'sha-256'))"),
+                                        // entry("pact:match", "eachValue(notEmpty('b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51'))"),
+                                        //This one does work:
+                                        // entry("pact:match", "atMost(2)"),
+                                        entry("sha-256", "notEmpty('b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51')")
+                                        ))
                         )))
                 .toPact();
     }
