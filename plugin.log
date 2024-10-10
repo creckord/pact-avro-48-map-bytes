@@ -1,0 +1,259 @@
+16:45:16.629 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:27 - Init request from plugin-driver-jvm/0.4.2
+16:45:16.744 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:44 - Got update catalogue request: TODO
+16:45:16.768 [grpc-default-executor-0] INFO  c.github.austek.plugin.avro.PactAvroPluginService:51 - Configure interaction request for content type 'avro/binary': ConfigureInteractionRequest(avro/binary,Some(Struct(Map(hashes -> Value(StringValue(atMost(2)),UnknownFieldSet(Map())), pact:record-name -> Value(StringValue(ExampleEvent),UnknownFieldSet(Map())), id -> Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())), pact:avro -> Value(StringValue(C:\Users\RECK062\AppData\Local\Temp\junit13562067115967495196\schema-3631617565175944255.avsc),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))
+16:45:16.921 [grpc-default-executor-0] DEBUG c.g.a.p.a.interaction.InteractionResponseBuilder$:14 - Start to build response
+16:45:16.936 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, id)), AvroFieldName(id), Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())))
+16:45:16.959 [grpc-default-executor-0] ERROR c.g.a.p.a.interaction.InteractionResponseBuilder$:27 - Expected map value for field 'hashes' but got 'StringValue(atMost(2))'
+16:45:16.960 [grpc-default-executor-0] ERROR c.github.austek.plugin.avro.PactAvroPluginService:63 - Configure interaction failed: Multiple errors detected and logged, please check logs
+16:45:16.986 [grpc-default-executor-0] INFO  c.github.austek.plugin.avro.PactAvroPluginService:51 - Configure interaction request for content type 'avro/binary': ConfigureInteractionRequest(avro/binary,Some(Struct(Map(hash -> Value(StringValue(notEmpty('b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51')),UnknownFieldSet(Map())), pact:record-name -> Value(StringValue(ExampleEvent),UnknownFieldSet(Map())), id -> Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())), pact:avro -> Value(StringValue(C:\Users\RECK062\AppData\Local\Temp\junit13562067115967495196\schema-4135166642427177153.avsc),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))
+16:45:16.988 [grpc-default-executor-0] DEBUG c.g.a.p.a.interaction.InteractionResponseBuilder$:14 - Start to build response
+16:45:16.988 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, id)), AvroFieldName(id), Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())))
+16:45:16.989 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, hash)), AvroFieldName(hash), Value(StringValue(notEmpty('b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51')),UnknownFieldSet(Map())))
+16:45:17.007 [grpc-default-executor-0] ERROR c.g.a.p.a.interaction.InteractionResponseBuilder$:29 - Failed to build interaction response
+java.lang.ClassCastException: value b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51 (a java.lang.String) cannot be cast to expected type bytes at ExampleEvent.hash
+	at org.apache.avro.path.TracingClassCastException.summarize(TracingClassCastException.java:79)
+	at org.apache.avro.path.TracingClassCastException.summarize(TracingClassCastException.java:30)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:84)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString$$anonfun$2(AvroRecord.scala:361)
+	at scala.util.Using$.apply(Using.scala:296)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString(AvroRecord.scala:364)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildRecordResponse$$anonfun$1(InteractionBuilder.scala:49)
+	at scala.util.Either.flatMap(Either.scala:360)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildRecordResponse(InteractionBuilder.scala:47)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildUnionResponse(InteractionBuilder.scala:37)
+Caused by: java.lang.ClassCastException: class java.lang.String cannot be cast to class java.nio.ByteBuffer (java.lang.String and java.nio.ByteBuffer are in module java.base of loader 'bootstrap')
+	at org.apache.avro.generic.GenericDatumWriter.writeBytes(GenericDatumWriter.java:400)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:168)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+	at org.apache.avro.generic.GenericDatumWriter.writeField(GenericDatumWriter.java:245)
+	at org.apache.avro.generic.GenericDatumWriter.writeRecord(GenericDatumWriter.java:234)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:145)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:82)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString$$anonfun$2(AvroRecord.scala:361)
+	at scala.util.Using$.apply(Using.scala:296)
+16:45:17.008 [grpc-default-executor-0] ERROR c.github.austek.plugin.avro.PactAvroPluginService:63 - Configure interaction failed: Multiple errors detected and logged, please check logs
+16:45:17.025 [grpc-default-executor-0] INFO  c.github.austek.plugin.avro.PactAvroPluginService:51 - Configure interaction request for content type 'avro/binary': ConfigureInteractionRequest(avro/binary,Some(Struct(Map(hashes -> Value(StructValue(Struct(Map(sha-256 -> Value(StringValue(matching(regex, '^[a-fA-F0-9]{64}$', 'b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51')),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map())), pact:record-name -> Value(StringValue(ExampleEvent),UnknownFieldSet(Map())), id -> Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())), pact:avro -> Value(StringValue(C:\Users\RECK062\AppData\Local\Temp\junit13562067115967495196\schema-6151447208747975365.avsc),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))
+16:45:17.026 [grpc-default-executor-0] DEBUG c.g.a.p.a.interaction.InteractionResponseBuilder$:14 - Start to build response
+16:45:17.027 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, id)), AvroFieldName(id), Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())))
+16:45:17.027 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, hashes, sha-256)), AvroFieldName(sha-256), Value(StringValue(matching(regex, '^[a-fA-F0-9]{64}$', 'b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51')),UnknownFieldSet(Map())))
+16:45:17.066 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:60 - Responding: ConfigureInteractionResponse(,List(InteractionResponse(Some(Body(avro/binary;record=ExampleEvent,Some(<ByteString@6c50c27c size=82 contents="\n12345\002\016sha-256\200\001b65a3f6f3fa21f4dd935a6dda08263...">),BINARY,UnknownFieldSet(Map()))),Map($.id -> MatchingRules(List(MatchingRule(not-empty,Some(Struct(Map(),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map())), $.hashes.sha-256 -> MatchingRules(List(MatchingRule(regex,Some(Struct(Map(regex -> Value(StringValue(^[a-fA-F0-9]{64}$),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),Map(),None,Some(PluginConfiguration(Some(Struct(Map(record -> Value(StringValue(ExampleEvent),UnknownFieldSet(Map())), schemaKey -> Value(StringValue(9f87bf63bc88d82352ae64e8d8d1b1f9),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),None,UnknownFieldSet(Map()))),,COMMON_MARK,,UnknownFieldSet(Map()))),Some(PluginConfiguration(None,Some(Struct(Map(9f87bf63bc88d82352ae64e8d8d1b1f9 -> Value(StructValue(Struct(Map(avroSchema -> Value(StringValue([{"type":"record","name":"ExampleEvent","namespace":"org.example","fields":[{"name":"id","type":"string"},{"name":"hashes","type":{"type":"map","values":"string"}}]}]),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))
+16:45:17.275 [grpc-default-executor-0] INFO  c.github.austek.plugin.avro.PactAvroPluginService:51 - Configure interaction request for content type 'avro/binary': ConfigureInteractionRequest(avro/binary,Some(Struct(Map(hashes -> Value(StructValue(Struct(Map(sha-256 -> Value(StringValue(notEmpty('b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51')),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map())), pact:record-name -> Value(StringValue(ExampleEvent),UnknownFieldSet(Map())), id -> Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())), pact:avro -> Value(StringValue(C:\Users\RECK062\AppData\Local\Temp\junit13562067115967495196\schema-8006164838794845680.avsc),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))
+16:45:17.276 [grpc-default-executor-0] DEBUG c.g.a.p.a.interaction.InteractionResponseBuilder$:14 - Start to build response
+16:45:17.277 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, id)), AvroFieldName(id), Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())))
+16:45:17.277 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, hashes, sha-256)), AvroFieldName(sha-256), Value(StringValue(notEmpty('b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51')),UnknownFieldSet(Map())))
+16:45:17.278 [grpc-default-executor-0] ERROR c.g.a.p.a.interaction.InteractionResponseBuilder$:29 - Failed to build interaction response
+java.lang.ClassCastException: value b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51 (a java.lang.String) cannot be cast to expected type bytes at ExampleEvent.hashes["sha-256"]
+	at org.apache.avro.path.TracingClassCastException.summarize(TracingClassCastException.java:79)
+	at org.apache.avro.path.TracingClassCastException.summarize(TracingClassCastException.java:30)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:84)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString$$anonfun$2(AvroRecord.scala:361)
+	at scala.util.Using$.apply(Using.scala:296)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString(AvroRecord.scala:364)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildRecordResponse$$anonfun$1(InteractionBuilder.scala:49)
+	at scala.util.Either.flatMap(Either.scala:360)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildRecordResponse(InteractionBuilder.scala:47)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildUnionResponse(InteractionBuilder.scala:37)
+Caused by: java.lang.ClassCastException: class java.lang.String cannot be cast to class java.nio.ByteBuffer (java.lang.String and java.nio.ByteBuffer are in module java.base of loader 'bootstrap')
+	at org.apache.avro.generic.GenericDatumWriter.writeBytes(GenericDatumWriter.java:400)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:168)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+	at org.apache.avro.generic.GenericDatumWriter.writeMap(GenericDatumWriter.java:347)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:154)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+	at org.apache.avro.generic.GenericDatumWriter.writeField(GenericDatumWriter.java:245)
+	at org.apache.avro.generic.GenericDatumWriter.writeRecord(GenericDatumWriter.java:234)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:145)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+16:45:17.278 [grpc-default-executor-0] ERROR c.github.austek.plugin.avro.PactAvroPluginService:63 - Configure interaction failed: Multiple errors detected and logged, please check logs
+16:45:17.287 [grpc-default-executor-0] INFO  c.github.austek.plugin.avro.PactAvroPluginService:51 - Configure interaction request for content type 'avro/binary': ConfigureInteractionRequest(avro/binary,Some(Struct(Map(hashes -> Value(StringValue(atMost(2)),UnknownFieldSet(Map())), pact:record-name -> Value(StringValue(ExampleEvent),UnknownFieldSet(Map())), id -> Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())), pact:avro -> Value(StringValue(C:\Users\RECK062\AppData\Local\Temp\junit13562067115967495196\schema-12998525058523008158.avsc),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))
+16:45:17.288 [grpc-default-executor-0] DEBUG c.g.a.p.a.interaction.InteractionResponseBuilder$:14 - Start to build response
+16:45:17.288 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, id)), AvroFieldName(id), Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())))
+16:45:17.289 [grpc-default-executor-0] ERROR c.g.a.p.a.interaction.InteractionResponseBuilder$:27 - Expected map value for field 'hashes' but got 'StringValue(atMost(2))'
+16:45:17.289 [grpc-default-executor-0] ERROR c.github.austek.plugin.avro.PactAvroPluginService:63 - Configure interaction failed: Multiple errors detected and logged, please check logs
+16:46:01.396 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:27 - Init request from plugin-driver-jvm/0.4.2
+16:46:01.527 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:44 - Got update catalogue request: TODO
+16:46:01.560 [grpc-default-executor-0] INFO  c.github.austek.plugin.avro.PactAvroPluginService:51 - Configure interaction request for content type 'avro/binary': ConfigureInteractionRequest(avro/binary,Some(Struct(Map(hash -> Value(StringValue(matching(regex, '^[a-fA-F0-9]{64}$', 'b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51')),UnknownFieldSet(Map())), pact:record-name -> Value(StringValue(ExampleEvent),UnknownFieldSet(Map())), id -> Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())), pact:avro -> Value(StringValue(C:\Users\RECK062\AppData\Local\Temp\junit11611226657001425563\schema-18392166683125322041.avsc),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))
+16:46:01.707 [grpc-default-executor-0] DEBUG c.g.a.p.a.interaction.InteractionResponseBuilder$:14 - Start to build response
+16:46:01.721 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, id)), AvroFieldName(id), Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())))
+16:46:01.740 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, hash)), AvroFieldName(hash), Value(StringValue(matching(regex, '^[a-fA-F0-9]{64}$', 'b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51')),UnknownFieldSet(Map())))
+16:46:01.759 [grpc-default-executor-0] ERROR c.g.a.p.a.interaction.InteractionResponseBuilder$:29 - Failed to build interaction response
+java.lang.ClassCastException: value b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51 (a java.lang.String) cannot be cast to expected type bytes at ExampleEvent.hash
+	at org.apache.avro.path.TracingClassCastException.summarize(TracingClassCastException.java:79)
+	at org.apache.avro.path.TracingClassCastException.summarize(TracingClassCastException.java:30)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:84)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString$$anonfun$2(AvroRecord.scala:361)
+	at scala.util.Using$.apply(Using.scala:296)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString(AvroRecord.scala:364)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildRecordResponse$$anonfun$1(InteractionBuilder.scala:49)
+	at scala.util.Either.flatMap(Either.scala:360)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildRecordResponse(InteractionBuilder.scala:47)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildUnionResponse(InteractionBuilder.scala:37)
+Caused by: java.lang.ClassCastException: class java.lang.String cannot be cast to class java.nio.ByteBuffer (java.lang.String and java.nio.ByteBuffer are in module java.base of loader 'bootstrap')
+	at org.apache.avro.generic.GenericDatumWriter.writeBytes(GenericDatumWriter.java:400)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:168)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+	at org.apache.avro.generic.GenericDatumWriter.writeField(GenericDatumWriter.java:245)
+	at org.apache.avro.generic.GenericDatumWriter.writeRecord(GenericDatumWriter.java:234)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:145)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:82)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString$$anonfun$2(AvroRecord.scala:361)
+	at scala.util.Using$.apply(Using.scala:296)
+16:46:01.761 [grpc-default-executor-0] ERROR c.github.austek.plugin.avro.PactAvroPluginService:63 - Configure interaction failed: Multiple errors detected and logged, please check logs
+16:46:12.122 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:27 - Init request from plugin-driver-jvm/0.4.2
+16:46:12.278 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:44 - Got update catalogue request: TODO
+16:46:12.312 [grpc-default-executor-0] INFO  c.github.austek.plugin.avro.PactAvroPluginService:51 - Configure interaction request for content type 'avro/binary': ConfigureInteractionRequest(avro/binary,Some(Struct(Map(pact:record-name -> Value(StringValue(ExampleEvent),UnknownFieldSet(Map())), id -> Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())), pact:avro -> Value(StringValue(C:\Users\RECK062\AppData\Local\Temp\junit9529056260122394724\schema-1384189105942993305.avsc),UnknownFieldSet(Map())), hash -> Value(StringValue(b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))
+16:46:12.511 [grpc-default-executor-0] DEBUG c.g.a.p.a.interaction.InteractionResponseBuilder$:14 - Start to build response
+16:46:12.532 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, id)), AvroFieldName(id), Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())))
+16:46:12.562 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, hash)), AvroFieldName(hash), Value(StringValue(b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51),UnknownFieldSet(Map())))
+16:46:12.568 [grpc-default-executor-0] ERROR c.g.a.p.a.interaction.InteractionResponseBuilder$:27 - 'b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51' is not a valid matching rule definition - Error parsing expression: Was expecting a matching rule definition type at index 0
+        b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51
+        ^
+16:46:12.569 [grpc-default-executor-0] ERROR c.github.austek.plugin.avro.PactAvroPluginService:63 - Configure interaction failed: Multiple errors detected and logged, please check logs
+16:46:26.889 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:27 - Init request from plugin-driver-jvm/0.4.2
+16:46:27.019 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:44 - Got update catalogue request: TODO
+16:46:27.050 [grpc-default-executor-0] INFO  c.github.austek.plugin.avro.PactAvroPluginService:51 - Configure interaction request for content type 'avro/binary': ConfigureInteractionRequest(avro/binary,Some(Struct(Map(id -> Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())), pact:record-name -> Value(StringValue(ExampleEvent),UnknownFieldSet(Map())), hash -> Value(NullValue(NULL_VALUE),UnknownFieldSet(Map())), pact:avro -> Value(StringValue(C:\Users\RECK062\AppData\Local\Temp\junit15766844682693859720\schema-7121117234359537770.avsc),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))
+16:46:27.190 [grpc-default-executor-0] DEBUG c.g.a.p.a.interaction.InteractionResponseBuilder$:14 - Start to build response
+16:46:27.207 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, id)), AvroFieldName(id), Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())))
+16:46:27.225 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, hash)), AvroFieldName(hash), Value(NullValue(NULL_VALUE),UnknownFieldSet(Map())))
+16:46:27.245 [grpc-default-executor-0] ERROR c.g.a.p.a.interaction.InteractionResponseBuilder$:29 - Failed to build interaction response
+java.lang.NullPointerException: null value for (non-nullable) bytes at ExampleEvent.hash
+	at org.apache.avro.path.TracingNullPointException.summarize(TracingNullPointException.java:88)
+	at org.apache.avro.path.TracingNullPointException.summarize(TracingNullPointException.java:30)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:84)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString$$anonfun$2(AvroRecord.scala:361)
+	at scala.util.Using$.apply(Using.scala:296)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString(AvroRecord.scala:364)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildRecordResponse$$anonfun$1(InteractionBuilder.scala:49)
+	at scala.util.Either.flatMap(Either.scala:360)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildRecordResponse(InteractionBuilder.scala:47)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildUnionResponse(InteractionBuilder.scala:37)
+Caused by: java.lang.NullPointerException: Cannot invoke "java.nio.ByteBuffer.limit()" because "bytes" is null
+	at org.apache.avro.io.BinaryEncoder.writeBytes(BinaryEncoder.java:62)
+	at org.apache.avro.generic.GenericDatumWriter.writeBytes(GenericDatumWriter.java:400)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:168)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+	at org.apache.avro.generic.GenericDatumWriter.writeField(GenericDatumWriter.java:245)
+	at org.apache.avro.generic.GenericDatumWriter.writeRecord(GenericDatumWriter.java:234)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:145)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:82)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString$$anonfun$2(AvroRecord.scala:361)
+16:46:27.256 [grpc-default-executor-0] ERROR c.github.austek.plugin.avro.PactAvroPluginService:63 - Configure interaction failed: Multiple errors detected and logged, please check logs
+16:46:43.244 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:27 - Init request from plugin-driver-jvm/0.4.2
+16:46:43.368 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:44 - Got update catalogue request: TODO
+16:46:43.396 [grpc-default-executor-0] INFO  c.github.austek.plugin.avro.PactAvroPluginService:51 - Configure interaction request for content type 'avro/binary': ConfigureInteractionRequest(avro/binary,Some(Struct(Map(id -> Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())), pact:avro -> Value(StringValue(C:\Users\RECK062\AppData\Local\Temp\junit14724463345367618574\schema-1888939762090253763.avsc),UnknownFieldSet(Map())), hash -> Value(NullValue(NULL_VALUE),UnknownFieldSet(Map())), pact:record-name -> Value(StringValue(ExampleEvent),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))
+16:46:43.533 [grpc-default-executor-0] DEBUG c.g.a.p.a.interaction.InteractionResponseBuilder$:14 - Start to build response
+16:46:43.553 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, id)), AvroFieldName(id), Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())))
+16:46:43.572 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, hash)), AvroFieldName(hash), Value(NullValue(NULL_VALUE),UnknownFieldSet(Map())))
+16:46:43.590 [grpc-default-executor-0] ERROR c.g.a.p.a.interaction.InteractionResponseBuilder$:29 - Failed to build interaction response
+java.lang.NullPointerException: null value for (non-nullable) bytes at ExampleEvent.hash
+	at org.apache.avro.path.TracingNullPointException.summarize(TracingNullPointException.java:88)
+	at org.apache.avro.path.TracingNullPointException.summarize(TracingNullPointException.java:30)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:84)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString$$anonfun$2(AvroRecord.scala:361)
+	at scala.util.Using$.apply(Using.scala:296)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString(AvroRecord.scala:364)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildRecordResponse$$anonfun$1(InteractionBuilder.scala:49)
+	at scala.util.Either.flatMap(Either.scala:360)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildRecordResponse(InteractionBuilder.scala:47)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildUnionResponse(InteractionBuilder.scala:37)
+Caused by: java.lang.NullPointerException: Cannot invoke "java.nio.ByteBuffer.limit()" because "bytes" is null
+	at org.apache.avro.io.BinaryEncoder.writeBytes(BinaryEncoder.java:62)
+	at org.apache.avro.generic.GenericDatumWriter.writeBytes(GenericDatumWriter.java:400)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:168)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+	at org.apache.avro.generic.GenericDatumWriter.writeField(GenericDatumWriter.java:245)
+	at org.apache.avro.generic.GenericDatumWriter.writeRecord(GenericDatumWriter.java:234)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:145)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:82)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString$$anonfun$2(AvroRecord.scala:361)
+16:46:43.591 [grpc-default-executor-0] ERROR c.github.austek.plugin.avro.PactAvroPluginService:63 - Configure interaction failed: Multiple errors detected and logged, please check logs
+
+16:53:34.749 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:27 - Init request from plugin-driver-jvm/0.4.2
+16:53:34.885 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:44 - Got update catalogue request: TODO
+16:53:34.919 [grpc-default-executor-0] INFO  c.github.austek.plugin.avro.PactAvroPluginService:51 - Configure interaction request for content type 'avro/binary': ConfigureInteractionRequest(avro/binary,Some(Struct(Map(pact:avro -> Value(StringValue(C:\Users\RECK062\AppData\Local\Temp\junit9858547593222744677\schema-12323116674190443525.avsc),UnknownFieldSet(Map())), id -> Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())), pact:record-name -> Value(StringValue(ExampleEvent),UnknownFieldSet(Map())), hashes -> Value(StringValue(atMost(2)),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))
+16:53:35.099 [grpc-default-executor-0] DEBUG c.g.a.p.a.interaction.InteractionResponseBuilder$:14 - Start to build response
+16:53:35.119 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, id)), AvroFieldName(id), Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())))
+16:53:35.146 [grpc-default-executor-0] ERROR c.g.a.p.a.interaction.InteractionResponseBuilder$:27 - Expected map value for field 'hashes' but got 'StringValue(atMost(2))'
+16:53:35.146 [grpc-default-executor-0] ERROR c.github.austek.plugin.avro.PactAvroPluginService:63 - Configure interaction failed: Multiple errors detected and logged, please check logs
+
+16:56:06.290 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:27 - Init request from plugin-driver-jvm/0.4.2
+16:56:06.423 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:44 - Got update catalogue request: TODO
+16:56:06.454 [grpc-default-executor-0] INFO  c.github.austek.plugin.avro.PactAvroPluginService:51 - Configure interaction request for content type 'avro/binary': ConfigureInteractionRequest(avro/binary,Some(Struct(Map(pact:avro -> Value(StringValue(C:\Users\RECK062\AppData\Local\Temp\junit17361123557526230642\schema-13959984318053434728.avsc),UnknownFieldSet(Map())), id -> Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())), pact:record-name -> Value(StringValue(ExampleEvent),UnknownFieldSet(Map())), hashes -> Value(StructValue(Struct(Map(sha-256 -> Value(StringValue(notEmpty('b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51')),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))
+16:56:06.591 [grpc-default-executor-0] DEBUG c.g.a.p.a.interaction.InteractionResponseBuilder$:14 - Start to build response
+16:56:06.608 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, id)), AvroFieldName(id), Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())))
+16:56:06.634 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, hashes, sha-256)), AvroFieldName(sha-256), Value(StringValue(notEmpty('b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51')),UnknownFieldSet(Map())))
+16:56:06.653 [grpc-default-executor-0] ERROR c.g.a.p.a.interaction.InteractionResponseBuilder$:29 - Failed to build interaction response
+java.lang.ClassCastException: value b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51 (a java.lang.String) cannot be cast to expected type bytes at ExampleEvent.hashes["sha-256"]
+	at org.apache.avro.path.TracingClassCastException.summarize(TracingClassCastException.java:79)
+	at org.apache.avro.path.TracingClassCastException.summarize(TracingClassCastException.java:30)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:84)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString$$anonfun$2(AvroRecord.scala:361)
+	at scala.util.Using$.apply(Using.scala:296)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString(AvroRecord.scala:364)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildRecordResponse$$anonfun$1(InteractionBuilder.scala:49)
+	at scala.util.Either.flatMap(Either.scala:360)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildRecordResponse(InteractionBuilder.scala:47)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildUnionResponse(InteractionBuilder.scala:37)
+Caused by: java.lang.ClassCastException: class java.lang.String cannot be cast to class java.nio.ByteBuffer (java.lang.String and java.nio.ByteBuffer are in module java.base of loader 'bootstrap')
+	at org.apache.avro.generic.GenericDatumWriter.writeBytes(GenericDatumWriter.java:400)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:168)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+	at org.apache.avro.generic.GenericDatumWriter.writeMap(GenericDatumWriter.java:347)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:154)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+	at org.apache.avro.generic.GenericDatumWriter.writeField(GenericDatumWriter.java:245)
+	at org.apache.avro.generic.GenericDatumWriter.writeRecord(GenericDatumWriter.java:234)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:145)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+16:56:06.655 [grpc-default-executor-0] ERROR c.github.austek.plugin.avro.PactAvroPluginService:63 - Configure interaction failed: Multiple errors detected and logged, please check logs
+
+16:57:34.057 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:27 - Init request from plugin-driver-jvm/0.4.2
+16:57:34.190 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:44 - Got update catalogue request: TODO
+16:57:34.218 [grpc-default-executor-0] INFO  c.github.austek.plugin.avro.PactAvroPluginService:51 - Configure interaction request for content type 'avro/binary': ConfigureInteractionRequest(avro/binary,Some(Struct(Map(hashes -> Value(StructValue(Struct(Map(sha-256 -> Value(StringValue(notEmpty('b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51')),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map())), pact:avro -> Value(StringValue(C:\Users\RECK062\AppData\Local\Temp\junit16707549850729312254\schema-11276977853124947471.avsc),UnknownFieldSet(Map())), id -> Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())), pact:record-name -> Value(StringValue(ExampleEvent),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))
+16:57:34.373 [grpc-default-executor-0] DEBUG c.g.a.p.a.interaction.InteractionResponseBuilder$:14 - Start to build response
+16:57:34.390 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, id)), AvroFieldName(id), Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())))
+16:57:34.410 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, hashes, sha-256)), AvroFieldName(sha-256), Value(StringValue(notEmpty('b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51')),UnknownFieldSet(Map())))
+16:57:34.429 [grpc-default-executor-0] ERROR c.g.a.p.a.interaction.InteractionResponseBuilder$:29 - Failed to build interaction response
+java.lang.ClassCastException: value b65a3f6f3fa21f4dd935a6dda082631c301e83936bb5e9b5d1edbad0c135eb51 (a java.lang.String) cannot be cast to expected type bytes at ExampleEvent.hashes["sha-256"]
+	at org.apache.avro.path.TracingClassCastException.summarize(TracingClassCastException.java:79)
+	at org.apache.avro.path.TracingClassCastException.summarize(TracingClassCastException.java:30)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:84)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString$$anonfun$2(AvroRecord.scala:361)
+	at scala.util.Using$.apply(Using.scala:296)
+	at com.github.austek.plugin.avro.Avro$AvroRecord.toByteString(AvroRecord.scala:364)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildRecordResponse$$anonfun$1(InteractionBuilder.scala:49)
+	at scala.util.Either.flatMap(Either.scala:360)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildRecordResponse(InteractionBuilder.scala:47)
+	at com.github.austek.plugin.avro.interaction.InteractionBuilder$.buildUnionResponse(InteractionBuilder.scala:37)
+Caused by: java.lang.ClassCastException: class java.lang.String cannot be cast to class java.nio.ByteBuffer (java.lang.String and java.nio.ByteBuffer are in module java.base of loader 'bootstrap')
+	at org.apache.avro.generic.GenericDatumWriter.writeBytes(GenericDatumWriter.java:400)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:168)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+	at org.apache.avro.generic.GenericDatumWriter.writeMap(GenericDatumWriter.java:347)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:154)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+	at org.apache.avro.generic.GenericDatumWriter.writeField(GenericDatumWriter.java:245)
+	at org.apache.avro.generic.GenericDatumWriter.writeRecord(GenericDatumWriter.java:234)
+	at org.apache.avro.generic.GenericDatumWriter.writeWithoutConversion(GenericDatumWriter.java:145)
+	at org.apache.avro.generic.GenericDatumWriter.write(GenericDatumWriter.java:95)
+16:57:34.431 [grpc-default-executor-0] ERROR c.github.austek.plugin.avro.PactAvroPluginService:63 - Configure interaction failed: Multiple errors detected and logged, please check logs
+
+16:58:10.701 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:27 - Init request from plugin-driver-jvm/0.4.2
+16:58:10.831 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:44 - Got update catalogue request: TODO
+16:58:10.858 [grpc-default-executor-0] INFO  c.github.austek.plugin.avro.PactAvroPluginService:51 - Configure interaction request for content type 'avro/binary': ConfigureInteractionRequest(avro/binary,Some(Struct(Map(pact:record-name -> Value(StringValue(ExampleEvent),UnknownFieldSet(Map())), hashes -> Value(StringValue(atMost(2)),UnknownFieldSet(Map())), pact:avro -> Value(StringValue(C:\Users\RECK062\AppData\Local\Temp\junit13186893061994850202\schema-7825448933965136236.avsc),UnknownFieldSet(Map())), id -> Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))
+16:58:11.035 [grpc-default-executor-0] DEBUG c.g.a.p.a.interaction.InteractionResponseBuilder$:14 - Start to build response
+16:58:11.056 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, id)), AvroFieldName(id), Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())))
+16:58:11.079 [grpc-default-executor-0] ERROR c.g.a.p.a.interaction.InteractionResponseBuilder$:27 - Expected map value for field 'hashes' but got 'StringValue(atMost(2))'
+16:58:11.079 [grpc-default-executor-0] ERROR c.github.austek.plugin.avro.PactAvroPluginService:63 - Configure interaction failed: Multiple errors detected and logged, please check logs
+
+17:03:24.980 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:27 - Init request from plugin-driver-jvm/0.4.2
+17:03:25.117 [grpc-default-executor-0] DEBUG c.github.austek.plugin.avro.PactAvroPluginService:44 - Got update catalogue request: TODO
+17:03:25.146 [grpc-default-executor-0] INFO  c.github.austek.plugin.avro.PactAvroPluginService:51 - Configure interaction request for content type 'avro/binary': ConfigureInteractionRequest(avro/binary,Some(Struct(Map(hashes -> Value(StringValue(atMost(2)),UnknownFieldSet(Map())), pact:record-name -> Value(StringValue(ExampleEvent),UnknownFieldSet(Map())), id -> Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())), pact:avro -> Value(StringValue(C:\Users\RECK062\AppData\Local\Temp\junit7203004336913594306\schema-5597068800149300443.avsc),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))),UnknownFieldSet(Map()))
+17:03:25.322 [grpc-default-executor-0] DEBUG c.g.a.p.a.interaction.InteractionResponseBuilder$:14 - Start to build response
+17:03:25.345 [grpc-default-executor-0] DEBUG com.github.austek.plugin.avro.Avro$AvroValue$:74 - >>> buildFieldValue(PactFieldPath(List($, id)), AvroFieldName(id), Value(StringValue(notEmpty('12345')),UnknownFieldSet(Map())))
+17:03:25.378 [grpc-default-executor-0] ERROR c.g.a.p.a.interaction.InteractionResponseBuilder$:27 - Expected map value for field 'hashes' but got 'StringValue(atMost(2))'
+17:03:25.379 [grpc-default-executor-0] ERROR c.github.austek.plugin.avro.PactAvroPluginService:63 - Configure interaction failed: Multiple errors detected and logged, please check logs
